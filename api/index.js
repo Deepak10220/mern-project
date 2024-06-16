@@ -1,6 +1,17 @@
-import express  from 'express'
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+const PORT = process.env.PORT || 5000;
+dotenv.config();
+mongoose.connect(process.env.MONGO).then(() => {
+  console.log("connection successfully");
+}
+).catch((err)=>{
+    console.log(err)
+})
 const app = express();
 
-app.listen(3000, ()=>{
-    console.log('Server is running on 3000')
-})
+app.listen(PORT, () => {
+  console.log("Server is running on 3000");
+});
