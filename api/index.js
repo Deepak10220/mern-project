@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import userRouter from './routes/user.route.js'
 import authRouter from './routes/auth.route.js'
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 dotenv.config();
 mongoose.connect(process.env.MONGO).then(() => {
   console.log("connection successfully");
@@ -18,8 +18,8 @@ app.use('/api/user',userRouter)
 app.use('/api/auth', authRouter)
 
 
-app.listen(PORT, () => {
-  console.log(`server is running at ${PORT}` );
+app.listen(3000, () => {
+  console.log(`server is running at ${3000}` );
 });
 
 app.use((err,req,res,next)=>{
